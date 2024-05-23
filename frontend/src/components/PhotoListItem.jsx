@@ -5,7 +5,7 @@ import "../styles/PhotoListItem.scss";
 const PhotoListItem = ({photo}) => {
   return (
     <li className="photo-list__item" key={photo.id}>
-    <div className="photo-list__item__details">
+    <div className="photo-list__details">
       <img className="photo-list__image" src={photo.imageSource}></img>
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={photo.profile}></img>
