@@ -16,10 +16,16 @@ const sampleDataForPhotoListItem = {
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  const photos = Array.from({ length: 3 }, (_, index) => index + 1);
+
   return (
     <div className="App">
-      <PhotoListItem photo={sampleDataForPhotoListItem}
-    />
+      {photos.map((_, index) => (
+        <PhotoListItem
+          key={index}
+          photo={sampleDataForPhotoListItem}
+        />
+      ))}
     </div>
   );
 };
