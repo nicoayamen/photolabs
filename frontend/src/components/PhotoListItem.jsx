@@ -8,9 +8,9 @@ const PhotoListItem = ({photo}) => {
     <li className="photo-list__item" key={photo.id}>
       <PhotoFavButton />
     <div className="photo-list__details">
-      <img className="photo-list__image" src={photo.imageSource}></img>
+      <img className="photo-list__image" src={photo.imageSource} alt={`Photo by ${photo.username}`}></img>
       <div className="photo-list__user-details">
-        <img className="photo-list__user-profile" src={photo.profile}></img>
+        <img className="photo-list__user-profile" src={photo.profile} alt={`Profile of ${photo.username}`}></img>
         <div className="photo-list__user-info">
           <span>{photo.username}</span>
           <div className="photo-list__user-location">
