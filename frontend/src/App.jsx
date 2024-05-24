@@ -10,13 +10,17 @@ import photos from 'mocks/photos';
 const App = () => {
   const [open, setOpen] = useState(false);
 
+  const toggleModal = () => {
+    setOpen(prevState => !prevState);
+  };
+
   return (
     <div className="App">
     <HomeRoute topics={topics} 
     photos={photos}
     open={open}
     setOpen={setOpen}/>
-    {open && <PhotoDetailsModal />}
+    {open && <PhotoDetailsModal open={open} toggleModal={toggleModal}/>}
   </div>
   );
 };
