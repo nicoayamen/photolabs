@@ -3,25 +3,26 @@ import PhotoFavButton from "./PhotoFavButton";
 
 import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = ({photo}) => {
+const PhotoListItem = (props) => {
+
+  const { photo, liked, toggleLike } = props
+
   return (
     <li className="photo-list__item" key={photo.id}>
-      <PhotoFavButton />
-    <div className="photo-list__details">
-      <img className="photo-list__image" src={photo.imageSource} alt={`Photo by ${photo.username}`}></img>
+      <PhotoFavButton liked={liked} toggleLike={toggleLike}/>
+      <img className="photo-list__image" src={photo.urls.regular}></img>
       <div className="photo-list__user-details">
-        <img className="photo-list__user-profile" src={photo.profile} alt={`Profile of ${photo.username}`}></img>
+        <img className="photo-list__user-profile" src={photo.user.profile}></img>
         <div className="photo-list__user-info">
-          <span>{photo.username}</span>
+          <span>{photo.user.username}</span>
           <div className="photo-list__user-location">
             <span>{photo.location.city}, </span>
             <span>{photo.location.country}</span>
           </div>
         </div>
       </div>
-    </div>
-  </li>
-);
+    </li>
+  );
 };
 
 export default PhotoListItem;
