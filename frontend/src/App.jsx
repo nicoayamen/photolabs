@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import useApplicationData from 'hooks/useAppData';
+import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
   const { state, toggleModal, toggleLike  } = useApplicationData();
