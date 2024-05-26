@@ -1,27 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import topics from 'mocks/topics';
-import photos from 'mocks/photos';
+import useApplicationData from 'hooks/useAppData';
 
-// Note: Rendering a single component to build components in isolation
 const App = () => {
-  const [open, setOpen] = useState(false);
-
-  const toggleModal = () => {
-    setOpen(prevState => !prevState);
-  };
+  const { state, toggleModal, toggleLike  } = useApplicationData();
 
   return (
     <div className="App">
-    <HomeRoute topics={topics} 
-    photos={photos}
-    open={open}
-    setOpen={setOpen}/>
-    {open && <PhotoDetailsModal open={open} toggleModal={toggleModal}/>}
-  </div>
+      <HomeRoute topics={state.topicData}
+        photos={state.photoData}
+        modalOpen={state.modalOpen}
+        toggleModal={toggleModal}
+        selectPhoto={state.selectPhoto}
+        toggleLike={toggleLike} 
+        likedPhotos={state.likedPhotos} 
+       />
+      {state.modalOpen &&
+        <PhotoDetailsModal
+          modalOpen={state.modalOpen}
+          toggleModal={toggleModal}
+          selectPhoto={state.selectPhoto}
+          toggleLike={toggleLike}
+          likedPhotos={state.likedPhotos}
+        />}
+    </div>
   );
 };
 

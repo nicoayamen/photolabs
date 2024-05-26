@@ -1,8 +1,10 @@
 import React from "react";
-import TopicListItem from "./TopicListItem";
 
 import "../styles/TopicList.scss";
+import TopicListItem from "./TopicListItem";
 
+
+//Component to display lsit of topics
 const TopicList = (props) => {
   
   const parsedTopic = props.topics.map((topic) =>
@@ -18,6 +20,5 @@ const TopicList = (props) => {
     </div>
   );
 };
-
 
 export default TopicList;
