@@ -28,6 +28,53 @@
   color: #61dafb;
 }
 
+// Light mode styles
+.App.light {
+  background-color: #f0f0f0; // Light background color
+  color: #333; // Light text color
+}
+
+// Dark mode styles
+.App.dark {
+  background-color: #282c34; // Dark background color
+  color: white; // Dark text color
+
+  .top-nav-bar__logo {
+    color: white; // Set text color of logo in dark mode
+  }
+
+  .photo-details-modal {
+    background-color: #282c34;
+    color: white;
+  }
+
+  h2 {
+    color: white;
+  }
+
+  .photo-details-modal__close-button {
+    background-color: #282c34;
+  }
+
+  .topic-list__item span {
+    color: #ffffff;
+  
+    &:hover {
+      color: #ffffff;
+    }
+  }
+
+  .top-nav-bar {
+    -webkit-box-shadow: 0 4px 6px -6px #ffffff;
+    -moz-box-shadow: 0 4px 6px -6px #ffffff;
+    box-shadow: 0 4px 6px -6px #ffffff;
+  }
+  
+  span {
+    color: #ffffff;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

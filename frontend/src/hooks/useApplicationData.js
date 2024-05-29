@@ -6,7 +6,8 @@ const useApplicationData = () => {
     selectPhoto: {},
     likedPhotos: [],
     photoData: [],
-    topicData: []
+    topicData: [],
+    light: 'light',
   };
 
   const reducer = (state, action) => {
@@ -30,6 +31,11 @@ const useApplicationData = () => {
           likedPhotos: isLiked
             ? state.likedPhotos.filter(id => id !== action.payload)
             : [...state.likedPhotos, action.payload],
+        };
+      case 'TOGGLE_LIGHT': // Add case for toggling light mode
+        return {
+          ...state,
+          light: state.light === 'light' ? 'dark' : 'light',
         };
       default:
         throw new Error('Unexpected action');
@@ -67,7 +73,11 @@ const useApplicationData = () => {
       .catch((error) => console.error(`Fetching photos for topic ${topicId} failed:`, error));
   };
 
-  return { state, toggleModal, toggleLike, fetchPhotosByTopic };
+  const toggleLight = () => { // Define toggleLight function
+    dispatch({ type: 'TOGGLE_LIGHT' });
+  };
+
+  return { state, toggleModal, toggleLike, fetchPhotosByTopic, toggleLight }; // Include toggleLight in the return object
 };
 
 export default useApplicationData;
